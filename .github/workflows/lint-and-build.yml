@@ -51,6 +51,9 @@ jobs:
         run: |
           npx stylelint ${{ steps.changed_css.outputs.all_changed_files }}
 
+      - name: Generate Nuxt files
+        run: npx nuxt prepare
+
       - name: Run TypeScript type check
         run: |
           if [ -f "tsconfig.json" ]; then
